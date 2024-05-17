@@ -8,43 +8,43 @@ test.describe('calculatorApp',()=>{
     
     test.describe('addWithLittleNumber',()=>{
         test('test',async({page})=>{
-            await page.locator('#1').click();
+            await page.locator('#number1').click();
             await page.locator('#sum').click();
-            await page.locator('#1').click();
+            await page.locator('#number1').click();
             await page.locator('#btnEqual').click();
-            await expect(page.locator('#screen')).toHaveValue('2');
+            await expect(page.locator('#screen')).toContainText('2');
         })
     })
 
     test.describe('substractWithLittleNumber',()=>{
         test('test',async({page})=>{
-            await page.locator('#1').click();
+            await page.locator('#number1').click();
             await page.locator('#soustraction').click();
-            await page.locator('#1').click();
+            await page.locator('#number1').click();
             await page.locator('#btnEqual').click();
-            await expect(page.locator('#screen')).toHaveValue('0');
+            await expect(page.locator('#screen')).toContainText('0');
         })
     })
 
     test.describe('multWithLittleNumber',()=>{
         test('test',async({page})=>{
-            await page.locator('#2').click();
+            await page.locator('#number2').click();
             await page.locator('#multiplication').click();
-            await page.locator('#2').click();
+            await page.locator('#number2').click();
             await page.locator('#btnEqual').click();
-            await expect(page.locator('#screen')).toHaveValue('4');
+            await expect(page.locator('#screen')).toContainText('4');
         })
     })
 
     test.describe('resetCalculator',()=>{
         test('test',async({page})=>{
-            await page.locator('#1').click();
+            await page.locator('#number1').click();
             await page.locator('#sum').click();
-            await page.locator('#1').click();
+            await page.locator('#number1').click();
             await page.locator('#btnEqual').click();
-            await expect(page.locator('#screen')).toHaveValue('2');
-            await page.locator('#1').click();
-            await expect(page.locator('#screen')).toHaveValue('1');
+            await expect(page.locator('#screen')).toContainText('2');
+            await page.locator('#C').click();
+            await expect(page.locator('#screen')).toHaveValue('0');
         })
     })
 })

@@ -57,15 +57,17 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div id='screen'className="screen">
+        <div className="screen">
+          <p id='screen'>
           {`${currentValue || 0} ${
             currentValue && operation ? operations[operation].symbol : ""
           } ${
             currentValue && operation && (chiffre || chiffre === 0)
-              ? chiffre
-              : ""
+            ? chiffre
+            : ""
           }
-        `}
+          `}
+          </p>
         </div>
         <div>
           {Object.keys(operations).map((opName) => (
@@ -77,7 +79,7 @@ function App() {
             .fill("")
             .map((e, i) => i)
             .map((e) => (
-              <button id={e.toString()} onClick={() => handleNumClick(e)}>
+              <button id={'number' + e.toString()} onClick={() => handleNumClick(e)}>
                 {e}
               </button>
             ))}
