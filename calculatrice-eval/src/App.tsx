@@ -57,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="screen">
+        <div id='screen'className="screen">
           {`${currentValue || 0} ${
             currentValue && operation ? operations[operation].symbol : ""
           } ${
@@ -69,7 +69,7 @@ function App() {
         </div>
         <div>
           {Object.keys(operations).map((opName) => (
-            <button onClick={() => updateOp(opName as Operation)}>{opName}</button>
+            <button id={opName} onClick={() => updateOp(opName as Operation)}>{opName}</button>
           ))}
         </div>
         <div className="numbers">
@@ -83,6 +83,7 @@ function App() {
             ))}
         </div>
         <button
+        id="btnEqual"
           className="btnEqual"
           onClick={() => {
             if ((currentValue && operation && chiffre) || chiffre === 0) {
@@ -95,6 +96,11 @@ function App() {
         >
           =
         </button>
+        <button id='C' onClick={()=>{
+          updateCurrent(undefined);
+          updateChiffre(undefined);
+          updateOp(undefined)
+        }}>C</button>
       </header>
     </div>
   );
